@@ -42,7 +42,7 @@ public class Phase : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.Space) && timeStamp <= Time.time) {
 				phase = PhaseState.Phase1;
 				timeStamp = Time.time + cooldownSeconds;
-				print ("Changed to Phase1");
+				// print ("Changed to Phase1");
 				player.layer = 8;
 				playerSprite.color = Color.cyan;
 				MusicSource.Play ();

@@ -32,7 +32,7 @@ public class Generator : MonoBehaviour {
 
     void SpawnPlatform()
     {
-        transform.position = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(0f, 2.0f) + distanceBetween, transform.position.z);
+        transform.position = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(0f, 1.0f) + distanceBetween, transform.position.z);
         distanceBetween += 1.0f;
 
         Instantiate(platform, transform.position, transform.rotation);
