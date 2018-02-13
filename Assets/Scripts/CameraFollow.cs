@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 public class CameraFollow : MonoBehaviour {
 
 	public Transform target;
+		
+	// Jump to Main Menu when you hit escape
+	void Update(){
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			SceneManager.LoadScene ("Menu");
+		}
+	}
 
-		void LateUpdate () {
+	void LateUpdate () {
 		if (target.position.y > transform.position.y) {
 
 			transform.position = new Vector3 (transform.position.x, target.position.y , transform.position.z);
