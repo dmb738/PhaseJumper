@@ -9,6 +9,8 @@ TagManager:
   - DeathBlock
   - Armor
   - Enemy
+  - Spike
+  - Projectile
   layers:
   - Default
   - TransparentFX

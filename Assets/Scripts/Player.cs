@@ -17,10 +17,12 @@ public class Player : MonoBehaviour {
 
 	public GameObject leftBounds;
 	public GameObject rightBounds;
+    
 
 	public float offset = 1.001f;
     // Armor System starts with player having 1 armor
     public int armor = 0;
+    public int scoreBuffer;
     // Indicates how much armor the player currently has
     public Text armorText;
     public Text gameOverText;
@@ -59,32 +61,59 @@ public class Player : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D other)
-    {
-        // Adds one armor to the player, max of three
-        if (other.gameObject.CompareTag("Armor") && armor < 3)
-        {
-            other.gameObject.SetActive(false);
-            armor += 1;
-            SetArmorText();
+	{
+		// Adds one armor to the player, max of one
+		if (other.gameObject.CompareTag ("Armor") && armor < 1) {
+			other.gameObject.SetActive (false);
+			armor += 1;
+			SetArmorText ();
 			SoundSource.clip = armorPickup;
 			SoundSource.Play ();
+		}
+        // Adds bonus armor to score, worth 50
+        else if (other.gameObject.CompareTag("Armor") && armor >= 1)
+        {
+            other.gameObject.SetActive(false);
+            PlayerPrefs.SetInt("ScoreBonus", 50);
+            SoundSource.clip = armorPickup;
+            SoundSource.Play();
         }
         // If you hit an enemy and you don't have armor to tank the hit, you die
-        else if (other.gameObject.CompareTag("Enemy"))
-        {
-            if (armor == 0)
-            {
-                GameOver();
-            }
-            else
-            {
-                other.gameObject.SetActive(false);
-                armor -= 1;
-                SetArmorText();
-            }
+        else if (other.gameObject.CompareTag ("Enemy")) {
+			if (armor == 0) {
+				GameOver ();
+			} else {
+				other.gameObject.SetActive (false);
+				armor -= 1;
+				SetArmorText ();
+			}
 			SoundSource.clip = enemyHit;
 			SoundSource.Play ();
-        }
+		}
+		else if (other.gameObject.CompareTag ("Projectile")) {
+			if (armor == 0) {
+				GameOver ();
+			} else {
+				other.gameObject.SetActive (false);
+				armor -= 1;
+				SetArmorText ();
+			}
+			SoundSource.clip = enemyHit;
+			SoundSource.Play ();
+		}
+		/* else if (other.gameObject.CompareTag ("Spike")) {
+			//if (rb.velocity.y <= 0f){
+			if (armor == 0) {
+				GameOver ();
+			} else {
+				other.gameObject.SetActive (false);
+				armor -= 1;
+				SetArmorText ();
+			}
+			SoundSource.clip = enemyHit;
+			SoundSource.Play ();
+		//}
+	}*/
     }
 
     void SetArmorText()
@@ -94,6 +123,7 @@ public class Player : MonoBehaviour {
     // Restarts from the beginning upon death
     void GameOver()
     {
+        PlayerPrefs.SetInt("ScoreBonus", 0);
         SceneManager.LoadScene("Test");
     }
 

@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Generator.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Bounce.cs" Line="6" Column="1" />
+      <File FileName="Assets\Scripts\Player.cs" Line="94" Column="5" />
+      <File FileName="Assets\Scripts\Spike.cs" Line="26" Column="100" />
+      <File FileName="Assets\Scripts\Generator.cs" Line="38" Column="19" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

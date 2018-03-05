@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhaseJumperv0.2", "PhaseJumperv0.2.csproj", "{DF131D6D-1E76-F627-E27D-55045F5D896B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF131D6D-1E76-F627-E27D-55045F5D896B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF131D6D-1E76-F627-E27D-55045F5D896B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF131D6D-1E76-F627-E27D-55045F5D896B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF131D6D-1E76-F627-E27D-55045F5D896B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -8,6 +8,8 @@ public class Generator : MonoBehaviour {
 	public GameObject platform2;
     public GameObject armor;
     public GameObject enemy;
+	public GameObject spikePlatformBlue;
+	public GameObject spikePlatformRed;
 	public Transform generationPoint;
 	public float distanceBetween;
 
@@ -18,7 +20,7 @@ public class Generator : MonoBehaviour {
             SpawnPlatform();
 			SpawnPlatform2 ();
             // Armor spawn appriximately 15% of the time
-            if (Random.value > .85)
+            if (Random.value > .2)
             {
                 SpawnArmor();
             }
@@ -27,6 +29,14 @@ public class Generator : MonoBehaviour {
             {
                 SpawnEnemy();
             }
+			if (Random.value > .8)
+			{
+				SpawnBlueSpike();
+			}
+			if (Random.value > .8)
+			{
+				SpawnRedSpike();
+			}
         }
     }
 
@@ -60,4 +70,18 @@ public class Generator : MonoBehaviour {
 
         Instantiate(enemy, transform.position, transform.rotation);
     }
+	void SpawnBlueSpike()
+	{
+		transform.position = new Vector2(Random.Range(-5.0f, 5.0f), Random.Range(1.0f, 3.0f) + distanceBetween);
+		distanceBetween += 1;
+
+		Instantiate(spikePlatformBlue, transform.position, transform.rotation);
+	}
+	void SpawnRedSpike()
+	{
+		transform.position = new Vector2(Random.Range(-5.0f, 5.0f), Random.Range(1.0f, 3.0f) + distanceBetween);
+		distanceBetween += 1;
+
+		Instantiate(spikePlatformRed, transform.position, transform.rotation);
+	}
 }

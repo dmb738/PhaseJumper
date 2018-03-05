@@ -10,11 +10,17 @@ public class Scoring : MonoBehaviour {
     public Text scoreText;
     float playerPosY;
     int score;
+    int scoreBuffer;
 
     // Use this for initialization
     void Start () {
+        PlayerPrefs.SetInt("ScoreBonus",0);
+
         //Score value
         score = 0;
+
+        //Bonus score value, i.e. extra armor
+        scoreBuffer = 0;
 
         //Text value
         SetScoreText();
@@ -29,8 +35,9 @@ public class Scoring : MonoBehaviour {
         if (playerPosY > score)
         {
             score = (int)playerPosY;
-            SetScoreText();
         }
+
+        SetScoreText();
     }
 
     void SetScoreText()
@@ -39,6 +46,11 @@ public class Scoring : MonoBehaviour {
         // scoreText.text = "Score: " + score.ToString();
 
         // Inflated score based on y value
-        scoreText.text = "Score: " + score * 10;
+        if (PlayerPrefs.GetInt("ScoreBonus") == 50)
+        {
+            scoreBuffer += 50;
+            PlayerPrefs.SetInt("ScoreBonus", 0);
+        }
+        scoreText.text = "Score: " + ((score * 10) + scoreBuffer);
     }
 }
